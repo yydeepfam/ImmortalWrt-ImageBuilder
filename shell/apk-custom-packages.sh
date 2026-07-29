@@ -187,3 +187,9 @@ CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-app-openclash luci-compat kmod-tun kmod-i
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-wifischedule-zh-cn"
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-xinetd-zh-cn"
 #CUSTOM_PACKAGES="$CUSTOM_PACKAGES luci-i18n-xlnetacc-zh-cn"
+# ============= 自定义：802.11s Mesh 组网核心组件 ========================
+# 1. 移除可能冲突的精简版或非 Mesh 版 wpad
+# 2. 安装支持 Mesh 和完整加密的 wpad-mesh-openssl
+# 3. 安装完整版 iw (替代 busybox 里的 iw)
+# 4. (可选但推荐) 安装 batman-adv 相关包以支持更好的二层漫游路由
+CUSTOM_PACKAGES="$CUSTOM_PACKAGES -wpad-basic-wolfssl -wpad-basic-mbedtls -wpad-openssl -wpad-mini wpad-mesh-openssl iw kmod-batman-adv batctl-default"
